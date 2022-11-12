@@ -1,0 +1,114 @@
+<div class="banner">
+  <div class="banner-content">
+    <div class="part-category">
+      <ul class="category-ul">
+        <li class="category-links">
+          <a href="#">All Offers</a>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Automobiles</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Software</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Grocery</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Mobile</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Fashion</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Electronic</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Home</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Appliances</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+        
+        <li class="category-links">
+          <a href="#">Travel</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Health & Beauty</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Health & Beauty</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Health & Beauty</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Health & Beauty</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+        <li class="category-links">
+          <a href="#">Health & Beauty</a>
+          <i class="pi pi-angle-right"></i>
+        </li>
+
+    </ul>
+      <!-- <p-card header="Most popular product" class="banner-card">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="assets/images/test3.jpg">
+        </ng-template>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+      </p-card> -->
+    </div>
+    <div class="part-banner">
+      <p-carousel [value]="ads" styleClass="custom-carousel" [circular]="true" [numVisible]="1" [numScroll]="1" [autoplayInterval]="3000">
+        <ng-template let-ad pTemplate="item">
+          
+          <img src="{{ad}}" [alt]="ad" class="banner-image"/>
+          
+        </ng-template>
+      </p-carousel>
+
+
+      <div class="under-slider-block">
+        <div class="under-img-block">
+          <img alt="Card" src="assets/images/test3.jpg">
+        </div>
+        <div class="under-img-block">
+          <img alt="Card" src="assets/images/test3.jpg">
+        </div>
+        <div class="under-img-block">
+          <img alt="Card" src="assets/images/test3.jpg">
+        </div>
+        <div class="under-img-block">
+          <img alt="Card" src="assets/images/test3.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

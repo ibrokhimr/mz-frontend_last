@@ -1,0 +1,138 @@
+// .checkout-page {
+//   min-height: 500px;
+
+//   button {
+//     background-color: $primary-color;
+//     border: 0;
+//   }
+
+//   .checkout {
+//     &-form {
+//       margin-top: 25px;
+//     }
+
+//     &-button {
+//       margin-top: 20px;
+//       button {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
+
+.checkout-page {
+  width: 85%;
+  max-width: 1500px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: space-between;
+
+  .form-block {
+    width: 65%;
+
+    .form-title {
+      padding: 1.1rem;
+      border: 1px solid #e2e2e2;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        font-size: 1.2rem; 
+
+        i {
+          &::before {
+            font-size: 1.5rem;
+            font-weight: 100;
+            color: #a1a1a1;
+          }
+        }
+      }
+    }
+
+    .form {
+      padding: 1rem;
+      border: 1px solid #e2e2e2;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      .form-field {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+
+        input {
+          width: 100%;
+
+          &:hover {
+            border: 1px solid #333333;
+          }
+
+          &:active {
+            border: 1px solid #333333;
+            box-shadow: 0 0 8px #333333;
+          }
+
+          &:focus {
+            border: 1px solid #333333;
+            box-shadow: 0 0 8px #333333;
+          }
+        }
+
+        .p-dropdown {
+          width: 100%;
+
+          &:hover {
+            border: 1px solid #333333;
+          }
+
+          &:active {
+            border: 1px solid #333333;
+            box-shadow: 0 0 8px #333333;
+          }
+
+          &:focus {
+            border: 1px solid #333333;
+            box-shadow: 0 0 8px #333333;
+          }
+        }
+      }
+    }
+  }
+
+  .checkout-page-content-right {
+    border-radius: 5px;
+    padding: 1rem;
+    width: 33%;
+
+    .checkout-button {
+      margin-top: 2rem;
+      .checkout-btn {
+        width: 100%;
+    
+        .p-button {
+          display: block;
+          margin: 0 auto;
+          width: 80%;
+          background-color: #333333;
+          color: #e2e2e2;
+          border: none;
+          transition: all 0.3s linear;
+          &:hover {
+            width: 100%;
+            background-color: #1b1b1b;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  
+}

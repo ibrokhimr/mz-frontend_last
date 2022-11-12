@@ -1,0 +1,16 @@
+{
+  "cli": {
+    "analytics": false
+  },
+  "version": 2,
+  "projects": {
+    "admin": "apps/admin",
+    "admin-e2e": "apps/admin-e2e",
+    "orders": "libs/orders",
+    "products": "libs/products",
+    "ui": "libs/ui",
+    "users": "libs/users",
+    "variantbor-frontend": "apps/variantbor-frontend",
+    "variantbor-frontend-e2e": "apps/variantbor-frontend-e2e"
+  }
+}

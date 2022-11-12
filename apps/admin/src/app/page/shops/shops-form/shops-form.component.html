@@ -1,0 +1,72 @@
+<div class="admin-page">
+  <div class="shops-form-block">
+      <div class="shop-center-block">
+          <h2 *ngIf="editmode">Редактирование магазина</h2>
+          <h2 *ngIf="!editmode">Создать магазин</h2>
+          <form [formGroup]="form" class="shop-form-block">
+              <div class="shop-info-block border-right">
+                  <label for="shopName">Имя Магазина</label>
+                  <input formControlName="shopName" type="text" name="shopName">
+                  <small
+                      *ngIf="shopForm.shopName.invalid && isSubmitted"
+                      class="p-error"
+                  >Shop's name is required</small>
+                  <label for="shopAdress">Адресс Магазина</label>
+                  <input formControlName="shopAdress" type="text" name="shopAdress">
+                  <small
+                      *ngIf="shopForm.shopAdress.invalid && isSubmitted"
+                      class="p-error"
+                  >Shop's address is required</small>
+                  <label for="shopType">Тип Магазина</label>
+                  <div class="drop-down-block">
+                      <p-dropdown formControlName="shopType" optionLabel="type" [options]="dataShopType"
+                          optionValue="value" [filter]="false" filterBy="name" [showClear]="false">
+                      </p-dropdown>
+                  </div>
+                  <div class="procent-block" *ngIf="shopForm.shopType.value === 'Индивидуальный'">
+                      <label>12 месяц:<input formControlName="procent12" type="number"></label>
+                      <label>18 месяц:<input formControlName="procent18" type="number"></label>
+                  </div>
+                  <div class="procent-block"  *ngIf="shopForm.shopType.value === 'Стандартный'">
+                      <label>12 месяц:<input formControlName="procent12" type="number"  readonly [ngModel]="procents[0].procent12"></label>
+                      <label>18 месяц:<input formControlName="procent18" type="number" readonly [ngModel]="procents[0].procent18"></label>
+                  </div>
+              </div>
+              <div class="shop-info-block">
+                  <label for="shopuserName">Имя Продавца</label>
+                  <input formControlName="shopuserName" type="text" name="shopuserName">
+                  <small
+                      *ngIf="shopForm.shopuserName.invalid && isSubmitted"
+                      class="p-error"
+                  >Seller's name is required</small>
+                  <label for="userPhone">Номер Продавца</label>
+                  <input formControlName="userPhone" type="tel" name="userPhone">
+                  <small
+                      *ngIf="shopForm.userPhone.invalid && isSubmitted"
+                      class="p-error"
+                  >Seller's number is required</small>
+                  <label for="userEmail">Электронная почта Продавца</label>
+                  <input formControlName="userEmail" type="email" name="userEmail">
+                  <small
+                      *ngIf="shopForm.userEmail.invalid && isSubmitted"
+                      class="p-error"
+                  >Seller's email is required</small>
+              </div>
+              <div class="password-block">
+                  <label for="shoppassword">Пароль</label>
+                  <input formControlName="shopPassword" type="password" name="shopPassword">
+                  <small
+                      *ngIf="shopForm.shopPassword.invalid && isSubmitted"
+                      class="p-error"
+                  >Seller's password is required</small>
+              </div>
+              <div class="shop-form-btn-block">
+                  <button (click)="onCancel()">Назад</button>
+                  <button *ngIf="!editmode" (click)="onSubmit()">Создать</button>
+                  <button *ngIf="editmode" (click)="onSubmit()">Изменить</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+

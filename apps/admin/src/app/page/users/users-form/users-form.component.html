@@ -1,0 +1,99 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card
+    [header]="editmode ? 'Edit User' : 'Add User'"
+    subheader="You can add or edit users here"
+  >
+    <div class="grid mb-5">
+      <div class="col-12">
+        <p-toolbar>
+          <div class="toolbar-group-left"></div>
+          <div class="toolbar-group-right">
+            <button
+              pButton
+              pRipple
+              [label]="editmode ? 'Update' : 'Create'"
+              icon="pi pi-plus"
+              class="p-button-outlined p-button-raised p-button-success mr-4 p-button-sm"
+              (click)="onSubmit()"
+            ></button>
+            <button
+            pButton
+            class=" p-button-outlined p-button-raised p-button-secondary p-button-sm"
+              label="Cancle"
+              icon="pi pi-arrow-circle-left"
+              (click)="onCancle()"
+            ></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="fluid formgrid grid">
+            <div class="field col">
+              <label for="name">Name</label>
+              <input formControlName="name" id="name" type="text" pInputText />
+              <small
+                *ngIf="userForm.name.invalid && isSubmitted"
+                class="p-error"
+                >Name is required</small
+              >
+            </div>
+            <div class="field col">
+              <label for="email">Email</label>
+              <input
+                formControlName="email"
+                id="email"
+                type="text"
+                pInputText
+              />
+              <small
+                *ngIf="userForm.email.invalid && isSubmitted"
+                class="p-error"
+                ><span *ngIf="userForm.email.errors.required"
+                  >email is required</span
+                >
+                <span *ngIf="userForm.email.errors.email"
+                  >email is invalid</span
+                ></small
+              >
+            </div>
+            <div class="field col">
+              <label for="password">Password</label>
+              <input
+                formControlName="password"
+                id="password"
+                type="password"
+                pInputText
+              />
+              <small
+                *ngIf="userForm.password.invalid && isSubmitted"
+                class="p-error"
+                >Password is required</small
+              >
+            </div>
+            <div class="field col">
+              <label for="phone">Phone</label><br />
+              <p-inputMask
+                mask="(99999)999-9999"
+                formControlName="phone"
+                placeholder="(99891)777-99-99"
+              ></p-inputMask>
+              <small
+                *ngIf="userForm.phone.invalid && isSubmitted"
+                class="p-error"
+                >phone is required</small
+              >
+            </div>
+            <div class="field col">
+              <label for="isAdmin">Is Admin</label><br />
+              <p-inputSwitch class="p-inputtext-sm" formControlName="isAdmin"></p-inputSwitch>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

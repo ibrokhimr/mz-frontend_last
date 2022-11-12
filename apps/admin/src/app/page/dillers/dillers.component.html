@@ -1,0 +1,107 @@
+<p-toast></p-toast>
+
+<div class="admin-page">
+  <p-card header="Диллеры" subheader="Список всех дилеров">
+    <div class="grid">
+
+      <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-file-excel"
+      label="Download Excel"
+
+      pTooltip="XLS"
+      tooltipPosition="bottom"
+      class="p-button-outlined p-button-info p-button-sm ml-2"
+    ></button>
+
+      <div class="col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left">
+            <!-- <p-button
+              styleClass="p-button-success"
+              label="Диллер"
+              icon="pi pi-plus"
+              routerLink="form"
+            ></p-button> -->
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="New"
+              routerLink="form"
+              class="p-button-outlined p-button-success p-button-sm"
+            ></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <p-table
+          [value]="dillers"
+          styleClass="p-datatable-gridlines"
+          responsiveLayout="scroll"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>#</th>
+              <th>Id</th>
+              <th pSortableColumn="name">
+                Диллер <p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th>Контакт</th>
+              <th>Аддресс</th>
+              <th>Нолог</th>
+              <th>Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-diller>
+            <tr>
+              <td>{{ dillers.indexOf(diller) + 1 }}</td>
+              <td>{{ diller.diller_ids }}</td>
+              <td>
+                <a
+                  href=""
+                  (click)="exactDiller(diller._id)"
+                  routerLink="full"
+                  >{{ diller.diller }}</a
+                >
+              </td>
+              <td>
+                {{ diller.phoneNumber }}
+              </td>
+              <td>
+                {{ diller.address }}
+              </td>
+              <td>
+                {{ diller.tax }}
+              </td>
+              <td>
+                <button
+                pButton
+                  (click)="deleteDiller(diller._id)"
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-danger p-button-text p-button-sm mr-2 "
+                ></button>
+                <button
+                 pButton
+                  (click)="updateDiller(diller._id)"
+                  styleClass="p-button-success"
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-primary p-button-text p-button-sm"
+                ></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>

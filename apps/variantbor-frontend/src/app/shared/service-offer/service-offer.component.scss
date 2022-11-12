@@ -1,0 +1,76 @@
+.service-offer-block {
+    max-width: 1500px;
+    width: 85%;
+    margin: 2rem auto;
+
+    .flash-block-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #d4d4d4;
+        padding: 1.5rem 0;
+    
+        h1 {
+          font-size: 1.5rem;
+        }
+    
+        a {
+          color: #495057;
+          text-decoration: none;
+          transition: all 0.3s linear;
+    
+          &:hover {
+            color: #c9151b;
+          }
+    
+          span {
+            font-size: 0.8rem;
+            padding-left: 1rem;
+          }
+        }
+      }
+
+    .sercive-offer-content {
+        width: 100%;
+        margin: 2rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+
+        .so-part {
+            text-align: center;
+
+            .so-icon {
+                width: 70px;
+                height: 70px;
+                margin: 0 auto;
+                position: relative;
+                overflow: hidden;
+                // background-image: url(/assets/images/op.png);
+                // background-position: center;
+                // background-repeat: no-repeat;
+                // background-size: cover;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    object-fit: cover;
+                    object-position: center;
+                    left: 0;
+                    top: 0;
+                }
+            }
+
+            h3 {
+              margin-top: 1rem;
+              color: #333333;
+            
+            }
+            
+            p {
+              color: #929292;
+            }
+        }
+    }
+}

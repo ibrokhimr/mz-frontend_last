@@ -1,0 +1,11 @@
+.qator {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin: 0 auto;
+}
+
+.tovar-block {
+    width: 100%;
+}

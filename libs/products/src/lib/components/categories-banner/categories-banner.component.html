@@ -1,0 +1,13 @@
+<div class="flash-sale">
+  <div class="flash-block-header">
+    <h1>Flash Sale</h1>
+    <a href="#">More Products <span class="pi pi-arrow-right"></span></a>
+  </div>
+  <div class="qator2">
+    <div class="tovar-block" *ngFor="let product of featuredProducts">
+      <products-product-item [product]="product"></products-product-item>
+    </div>
+  </div>
+</div>
+
+

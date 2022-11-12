@@ -1,0 +1,229 @@
+<!-- <div class="product-page" *ngIf="product">
+  <div class="grid">
+    <div class="col-6">
+      <img style="width:70%" [src]="product.image" class="image" alt="" />
+    </div>
+    <div class="col-6 product" >
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-desc">
+        {{ product.description }}
+      </p>
+      <div class="product-rating">
+        <p-rating
+          [(ngModel)]="product.rating"
+          [cancel]="false"
+          [disabled]="true"
+        ></p-rating>
+      </div>
+      <div class="product-price">
+        {{ product.price | currency }}
+        <span class="price-before">{{ product.price + 18 | currency }}</span>
+      </div>
+      <div class="product-quantity">
+        <div class="field col-12 md:col-3 p-0">
+          <label for="quantity">Quantity</label>
+          <p-inputNumber
+            [(ngModel)]="quantity"
+            mode="decimal"
+            [showButtons]="true"
+            inputId="quantity"
+            [min]="1"
+            [max]="100"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+      <div class="product-actions">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Buy now"
+          class="p-button-rounded mr-2"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Add to Cart"
+          class="p-button-rounded mr-2"
+          (click)="addProductToCart()"
+        ></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid product-rich-desc">
+    <div class="col-12">
+    <div [innerHTML]="product.richDescription"></div>
+    </div>
+  </div>
+</div> -->
+
+<div class="product-page" *ngIf="product">
+  <div class="product-page-content">
+    <div class="product-page-photo-block">
+      <div class="img-block2">
+        <div class="img-block mb-4">
+          <img [src]="product.image" alt="" />
+        </div>
+
+        <p-carousel
+          [value]="products_image"
+          [numVisible]="3"
+          [numScroll]="1"
+          [circular]="true"
+        >
+          <ng-template let-product pTemplate="item">
+            <div class="product-item">
+              <div class="product-item-content">
+                <div class="px-2">
+                  <img
+                    width="60"
+                    src="{{ product }}"
+                    [alt]="product_image"
+                    class="product-image"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+
+    <div class="product-page-main-block">
+      <div class="main-description">
+        <h2>{{ product.name }}</h2>
+        <div class="main-sku">SKU: <span>Black</span></div>
+        <div class="main-star-block">
+          <span class="average-stars">5.33</span>
+          <span class="product-rating">
+            <p-rating
+              [(ngModel)]="product.rating"
+              [cancel]="false"
+              [disabled]="true"
+            ></p-rating>
+          </span>
+          <span class="reviews">(3 Reviews)</span>
+          <div class="product-main-stock-block">
+            <span class="pi pi-check-circle"></span>
+            <span class="stock-text">In Stock</span>
+          </div>
+        </div>
+        <div class="product-main-price-block">
+          <div class="main-past-price">{{ product.price + 18 | currency }}</div>
+          <div class="main-price">{{ product.price | currency }}</div>
+        </div>
+      </div>
+
+      <div class="product-specification-table-block">
+        <div class="product-specification-table-content">
+          <div class="tr">
+            <div class="td-spec">Model Name</div>
+            <div>Macbook Air</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Brand</div>
+            <div>Apple</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Specific Uses For Product</div>
+            <div>Multimedia, Personal, Business</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Screen Size</div>
+            <div>13.3 Inches</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Operating System</div>
+            <div>Mac OS</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Human Interface Input</div>
+            <div>Keyboard</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">CPU Manufacturer</div>
+            <div>Apple</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Graphics Card Description</div>
+            <div>Integrated</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Color</div>
+            <div>Gold</div>
+          </div>
+          <div class="tr">
+            <div class="td-spec">Connectivity Technology</div>
+            <div>Bluetooth, Wi-Fi, Bluetooth 5.0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="total-price-block">
+        <!-- <div class="total-price-quantity">
+          <span class="pi pi-minus"></span>
+          <span>1</span>
+          <span class="pi pi-plus"></span>
+        </div> -->
+        <p-inputNumber
+          [(ngModel)]="quantity"
+          mode="decimal"
+          [showButtons]="true"
+          inputId="quantity"
+          [min]="1"
+          [max]="100"
+        >
+        </p-inputNumber>
+        <div class="total-price-part">
+          Total Price: <span class="total-price">$ 1 284</span>
+        </div>
+      </div>
+
+      <div class="main-buyer-block">
+        <span>0 Days</span>
+        <span>Estimated delivery time</span>
+        <div class="buyer-btn-block">
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Add to Cart"
+            class="p-button mr-2"
+            (click)="addProductToCart()"
+          >
+            <span class="pi pi-shopping-bag"></span>
+          </button>
+          <!-- <div class="buyer-buy-now-btn"><a href="#"><span class="pi pi-shopping-bag"></span> Buy Now</a></div> -->
+        </div>
+      </div>
+
+      <div class="product-garauntee-block">
+        <div class="garauntee-img">
+          <span class="pi pi-shield"></span>
+        </div>
+        <div class="garauntee-text-block">
+          <div class="garauntee-days">10 Days cash back Guarantee</div>
+          <div class="garauntee-protect">Yoori eCommerce Refund Protection</div>
+        </div>
+        <div class="garauntee-policy">
+          <a href="#">View Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="recent-products-block"></div>
+  </div>
+
+  <div class="product-page-details-block">
+    <div class="product-detail-nav-block">
+      <div class="nav-detail detail-active">DETAILS</div>
+      <div class="nav-reviews">REVIEWS</div>
+    </div>
+    <div class="product-detail-text-block">
+      <div>{{ product.description }}</div>
+    </div>
+  </div>
+</div>

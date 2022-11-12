@@ -1,0 +1,22 @@
+
+<div class="product-list-container">
+  <div class="product-list-content">
+
+    <div class="product-list-category-block" *ngIf="!isCategoryPage">
+      <h4>Categories</h4>
+      <div class="field-checkbox" *ngFor="let category of categories">
+        <p-checkbox  [(ngModule)]="category.checked" [binary]="true" [inputId]="category.id" (onChange)="categoryFilter()"></p-checkbox>
+        <label for="{{category._id}}">{{category.name}}</label>
+      </div>
+    </div>
+
+    <div class="product-list-block">
+      <div class="product-list-qator" *ngIf="products">
+        <div class="tovar-block" *ngFor="let product of products">
+          <products-product-item [product]="product"></products-product-item>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

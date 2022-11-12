@@ -1,0 +1,135 @@
+<div class="admin-sidebar">
+  <div class="logo">
+    <img src="./../../../assets/images/mobilezone.png" alt="" />
+  </div>
+  <div>
+    {{user}}
+  </div>
+  <div class="links">
+    <p-accordion>
+      <p-accordionTab class="text-xs" header="Админ модуль">
+        <ul>
+          <li>
+            <a href="" routerLink="/dashboard"
+              ><i class="pi pi-home"></i>Админ доска</a
+            >
+          </li>
+          <li>
+            <a href="" routerLink="/users"
+              ><i class="pi pi-user"></i>Пользовател</a
+            >
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Контент-модуль">
+        <ul>
+          <li>
+            <a href="" routerLink="/products"
+              ><i class="pi pi-briefcase"></i> Товары</a
+            >
+          </li>
+          <li>
+            <a href="" routerLink="/categories"
+              ><i class="pi pi-list"></i> Категории</a
+            >
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Модуль Диллера">
+        <ul>
+          <li>
+            <a href="" routerLink="/dillers">
+              <i class="pi pi-users"></i>Диллеры
+            </a>
+          </li>
+          <li>
+            <a href="" routerLink="/hr">
+              <i class="pi pi-check-square"></i>Hr
+            </a>
+          </li>
+          <li>
+            <a href="" routerLink="/regions">
+              <i class="pi pi-home"></i>Регионы
+            </a>
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Колл-центр">
+        <ul>
+          <li>
+            <a href="" routerLink="/callcenter"
+              ><i class="pi pi-phone"></i> Call center</a
+            >
+          </li>
+          <li>
+            <a href="" routerLink="/purchase"
+              ><i class="pi pi-shopping-cart"></i>Pokupka</a
+            >
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Scoring">
+        <ul>
+          <li>
+            <a href="" routerLink="/shops"
+              ><i class="pi pi-sliders-v"></i>Магазины</a
+            >
+          </li>
+          <li>
+            <a href="" routerLink="/newScoring"
+              ><i class="pi pi-sliders-v"></i>Новые документы</a
+            >
+          </li>
+          <li>
+            <a href="" routerLink="/myScoring"
+              ><i class="pi pi-sliders-v"></i>Мои документы</a
+            >
+          </li>
+
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Закуп модуль">
+        <ul>
+          <li>
+            <a href="" routerLink="/zakup"
+              ><i class="pi pi-shopping-bag"></i>Zakup</a
+            >
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Logistic">
+        <ul>
+          <li>
+            <a href="" routerLink="/orders"><i class="pi pi-car"></i>Orders</a>
+          </li>
+          <li>
+            <a href="" routerLink="/logistics"
+              ><i class="pi pi-car"></i>Logistic</a
+            >
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="CMM">
+        <ul>
+          <li>
+            <a href="" routerLink="/banner"><i class="pi pi-image"></i> CMM</a>
+          </li>
+        </ul>
+      </p-accordionTab>
+      <p-accordionTab class="text-xs" header="Выйти">
+        <ul>
+          <li>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-sign-out"
+              class=" p-button-danger p-button-outlined ml-5 p-button-sm"
+              (click)="logoutUser()"
+            ></button>
+          </li>
+        </ul>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+</div>

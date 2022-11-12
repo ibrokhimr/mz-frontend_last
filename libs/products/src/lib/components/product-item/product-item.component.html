@@ -1,0 +1,90 @@
+<!--
+ <div class="product-item" *ngIf="product">
+  <div class="product-item-content">
+    <div class="mb-3">
+      <img
+        [routerLink]="'/products/' + product._id"
+        [src]="product.image"
+        width="100"
+        class="product-image shadow-4"
+
+      />
+    </div>
+    <div>
+      <h3 class="name mb-1">{{ product.name }}</h3>
+      <h4 class="price mt-3 mb-3">{{ product.price | currency }}</h4>
+    </div>
+    <p-button
+      styleClass="mt-4 add-to-cart"
+      label=""
+      icon="pi pi-shopping-cart"
+      iconPos="right"
+      (onClick)="addProductToCart()"
+    ></p-button>
+  </div>
+
+  <div class="contentBox">
+    <p>{{ product.category.name }}</p>
+    <p class="product-name">{{ product.name }}</p>
+    <div class="price-chart">
+      <p class="price mr-8">
+        $<small>{{ product.price }}</small>
+      </p>
+
+    </div>
+  </div>
+</div>
+ -->
+
+
+<!-- <div class="tovar-content" *ngIf="product">
+  <div class="status">
+      <div class="sklad">INSTOCK</div>
+  </div>
+  <div class="img-block">
+      <img [routerLink]="'/products/' + product._id"
+      [src]="product.image" alt="">
+  </div>
+  <div class="product-item-info-block">
+    <h2 class="tovar-name">{{ product.name }}</h2>
+    <div class="for-sale">
+      
+      <div class="tovar-price"><span class="past-price">$100</span>{{ product.price | currency }}</div>
+  
+      <p-button
+        styleClass="add-to-cart"
+        label=""
+        icon="pi pi-shopping-cart"
+        iconPos="right"
+        (onClick)="addProductToCart()"
+      ></p-button>
+    </div>
+  </div>
+  
+  
+</div> -->
+
+<div class="tovar-content" *ngIf="product">
+  <div class="img-block">
+      <img [routerLink]="'/products/' + product._id"
+      [src]="product.image" alt="">
+  </div>
+  <div class="product-item-info-block">
+    <div class="status">
+      <div class="sklad">INSTOCK</div>
+    </div>
+    <h2 class="tovar-name">{{ productName }}</h2>
+    <div class="for-sale">
+      
+      <div class="tovar-price"><span class="past-price">$100</span>{{ product.price | currency }}</div>
+  
+      <p-button
+        styleClass="add-to-cart"
+        label=""
+        icon="pi pi-shopping-cart"
+        iconPos="right"
+        (onClick)="addProductToCart()"
+      ></p-button>
+    </div>
+  </div>
+</div>

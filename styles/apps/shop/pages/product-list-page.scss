@@ -1,0 +1,28 @@
+.product-list-content {
+    margin: 0 auto;
+    width: 85%;
+    max-width: 1500px;
+    display: flex;
+    justify-content: space-between;
+
+    .product-list-category-block {
+        width: 25%;
+        padding-top: 2rem;
+    }
+
+    .product-list-block {
+        width: 75%;
+
+        .product-list-qator {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 0 auto;
+
+            .tovar-block {
+                width: 100%;
+            }
+        }
+    }
+}

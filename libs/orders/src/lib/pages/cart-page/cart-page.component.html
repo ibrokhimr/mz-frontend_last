@@ -1,0 +1,135 @@
+<!-- <div class="cart-page">
+  <div class="grid">
+    <div class="col-8">
+      <div>
+        <p-button
+          label="Continue looking"
+          icon="pi pi-arrow-left"
+          (onClick)="backToShop()"
+
+        >
+        </p-button>
+      </div>
+      <div class="mt-5">
+        <h4>My cart: {{ cartCount }} Item(s)</h4>
+      </div>
+      <div class="cart-shipping mb-5 mt-3">
+        Shipping after the payment, Delivery time : 1 to 4 working days
+      </div>
+      <div class="cart-item mb-5" *ngFor="let cartItem of cartItemsDetailed">
+        <div class="grid p-fluid">
+          <div class="col-2 cart-item-image">
+            <img
+              [src]="cartItem.product.image"
+              [attr.alt]="cartItem.product.name"
+            />
+          </div>
+          <div class="col-7">
+            <div class="cart-item-name">{{ cartItem.product.name }}</div>
+            <div class="cart-item-price">
+              {{ cartItem.product.price | currency }}
+            </div>
+            <div class="cart-item-remove">
+              <p-button
+                icon="pi pi-trash"
+                (onClick)="deleteCartItem(cartItem)"
+              ></p-button>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="field cart-item-quantity">
+              <label for="quantity">Quantity</label>
+              <p-inputNumber
+                mode="decimal"
+                [showButtons]="true"
+                [inputId]="cartItem.product.id"
+                [min]="1"
+                [max]="100"
+                [(ngModel)]="cartItem.quantity"
+                (onInput)="updateCartItemQuantity($event,cartItem)"
+              >
+              </p-inputNumber>
+            </div>
+            <div class="cart-item-subtotal">
+              Subtotal:
+              <span class="cart-item-subtotal-value">
+                {{ cartItem.product.price * cartItem.quantity | currency }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <order-order-summary></order-order-summary>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="cart-page">
+  <div class="cart-page-content">
+
+    <div class="cart-page-content-left">
+      <div class="btn-to-back">
+        <p-button
+          label="Continue Looking"
+          icon="pi pi-arrow-left"
+          (onClick)="backToShop()"
+        >
+        </p-button>
+      </div>
+      <div class="shop-name-block">
+        <span>MobileZone</span>
+        <span><i class="pi pi-angle-down"></i></span>
+      </div>
+      <div class="item-list-block">
+          <div class="tr-th">
+            <div class="th th-product">Product</div>
+            <div class="th th-price">Unit Price</div>
+            <div class="th th-quantity">Quantity</div>
+            <div class="th th-price">Total Price</div>
+            <div class="th th-price">Action</div>
+          </div>
+          <div class="tr-tr" *ngFor="let cartItem of cartItemsDetailed">
+            <div class="td td-product">
+              <div class="cart-product-img-block">
+                <img
+                [src]="cartItem.product.image"
+                [attr.alt]="cartItem.product.name"
+                />
+              </div>
+              <span>{{ cartItem.product.name }}</span>
+            </div>
+            <div class="td td-price">{{ cartItem.product.price | currency }}</div>
+            <div class="td td-quantity">
+
+              <p-inputNumber
+                mode="decimal"
+                [showButtons]="true"
+                [inputId]="cartItem.product.id"
+                [min]="1"
+                [max]="100"
+                [(ngModel)]="cartItem.quantity"
+                (onInput)="updateCartItemQuantity($event,cartItem)"
+              >
+              </p-inputNumber>
+
+            </div>
+            <div class="td td-price">{{ cartItem.product.price * cartItem.quantity | currency }}</div>
+            <div class="td td-price">
+              <p-button
+                icon="pi pi-trash"
+                (onClick)="deleteCartItem(cartItem)"
+              ></p-button>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="cart-page-content-right">
+      <order-order-summary></order-order-summary>
+    </div>
+
+  </div>
+</div>

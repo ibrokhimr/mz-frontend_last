@@ -1,0 +1,95 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card [header]="editMode ?'Править Диллер': 'Добавить Диллера'" subheader="Вы можете добавить или отредактировать Дилера">
+    <div class="grid">
+      <div class="col-12 mb-5">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button
+            pButton
+            pRipple
+              class="p-button-outlined p-button-raised p-button-success mr-4 p-button-sm"
+              [label]=" editMode ? 'Update': 'Create'"
+              icon="pi pi-plus"
+              (click)="onSubmit()"
+            >
+          </button>
+            <button
+            pButton
+             class="p-button-outlined p-button-raised p-button-secondary p-button-sm"
+              label="Назад"
+              icon="pi pi-arrow-circle-left"
+              (click)="onCancel()"
+            ></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="card">
+            <h3>Форма для Диллера</h3>
+            <div class="formgrid grid">
+              <div class="field col-3">
+                <label for="diller">Диллер</label>
+                <input
+                  formControlName="diller"
+                  id="diller"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Пожалуйста, введите Диллер"
+                />
+                <small *ngIf="dillersForm.diller.invalid && isSubmitted" class="p-error"
+                  >Дилер требуется</small
+                >
+              </div>
+              <div class="field col-3">
+                <label for="phoneNumber">Телефонный номер</label><br />
+                <p-inputMask
+                  mask="(99999)999-99-99"
+                  formControlName="phoneNumber"
+                  placeholder="(00000)-000-00-00"
+                ></p-inputMask>
+                <small *ngIf="dillersForm.phoneNumber.invalid && isSubmitted" class="p-error"
+                  >Требуется номер телефона</small
+                >
+              </div>
+              <div class="field col-3  ">
+                <label for="address">Адрес офиса</label>
+                <input
+                  formControlName="address"
+                  id="address"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Пожалуйста, введите адрес"
+                />
+                <small *ngIf="dillersForm.address.invalid && isSubmitted" class="p-error"
+                  >Укажите адрес</small
+                >
+              </div>
+
+              <div class="field col-3 ">
+                <label for="tax">НАЛОГ</label>
+                <input
+                  formControlName="tax"
+                  id="tax"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Пожалуйста, введите НАЛОГ"
+                />
+                <small *ngIf="dillersForm.tax.invalid && isSubmitted" class="p-error"
+                  >Требуется налог</small
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

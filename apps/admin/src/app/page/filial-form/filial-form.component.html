@@ -1,0 +1,208 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card
+    [header]="editMode ? 'Редактировать Филиал' : 'Добавить Филиал'"
+    subheader="Вы можете добавить или отредактировать Филиал"
+  >
+    <div class="grid">
+      <div class="col-12 mb-5">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button
+              pButton
+              pRipple
+              class="p-button-outlined p-button-raised p-button-success mr-4 p-button-sm"
+              [label]="editMode ? 'Update' : 'Create'"
+              icon="pi pi-plus"
+              (click)="onSubmit()"
+            ></button>
+            <button
+              pButton
+              class="p-button-outlined p-button-raised p-button-secondary p-button-sm"
+              label="Cancel"
+              icon="pi pi-arrow-circle-left"
+              (click)="onCancel()"
+            ></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <form [formGroup]="formFilial">
+          <div class="card">
+            <h3>Форма для филиала</h3>
+            <div class="formgrid grid">
+              <div class="field col-3">
+                <label for="address">Адрес</label>
+                <input
+                  formControlName="address"
+                  id="address"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Address"
+                />
+                <small
+                  *ngIf="filialsForm.address.invalid && isSubmitted"
+                  class="p-error"
+                  >Укажите адрес</small
+                >
+              </div>
+              <div class="field col-3">
+                <label for="accountNumber">Номер счета</label>
+                <input
+                  formControlName="accountNumber"
+                  id="accountNumber"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Name of Office"
+                />
+                <small
+                  *ngIf="filialsForm.accountNumber.invalid && isSubmitted"
+                  class="p-error"
+                  >Требуется номер счета</small
+                >
+              </div>
+              <div class="field col-3">
+                <label for="serialNumber">Телефонный номер</label><br />
+                <p-inputMask
+                  mask="aa-9999999"
+                  formControlName="serialNumber"
+                  placeholder="aa-0000000"
+                ></p-inputMask>
+                <small
+                  *ngIf="filialsForm.serialNumber.invalid && isSubmitted"
+                  class="p-error"
+                  >Укажите номер Serial Number.</small
+                >
+              </div>
+
+              <div class="field col-3">
+                <label for="inn">ИНН</label>
+                <input
+                  formControlName="inn"
+                  id="inn"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Name of Office"
+                />
+                <small
+                  *ngIf="filialsForm.inn.invalid && isSubmitted"
+                  class="p-error"
+                  >ИНН требуется</small
+                >
+              </div>
+              <div class="field col-3">
+                <label for="tranzitAccount">Транзитный номер</label>
+                <input
+                  formControlName="tranzitAccount"
+                  id="tranzitAccount"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Name of Office"
+                />
+                <small
+                  *ngIf="filialsForm.tranzitAccount.invalid && isSubmitted"
+                  class="p-error"
+                  >Требуется переход аккаунта</small
+                >
+              </div>
+              <div class="col-3">
+                <label for="diller">Диллер</label><br />
+                <p>{{ message }}</p>
+
+                <small
+                  *ngIf="filialsForm.diller.invalid && isSubmitted"
+                  class="p-error"
+                  >Дилер требуется</small
+                >
+              </div>
+              <div class="field col-3">
+                <label for="employer">Сотрудник</label>
+                <input
+                  formControlName="employer"
+                  id="employer"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Name of Office"
+                />
+                <small
+                  *ngIf="filialsForm.employer.invalid && isSubmitted"
+                  class="p-error"
+                  >Сотрудник требуется</small
+                >
+              </div>
+
+              <div class="field col-3">
+                <label for="bankNumber">Банк</label>
+                <input
+                  formControlName="bankNumber"
+                  id="bankNumber"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Name of Office"
+                />
+                <small
+                  *ngIf="filialsForm.bankNumber.invalid && isSubmitted"
+                  class="p-error"
+                  >Требуется номер банка</small
+                >
+              </div>
+              <div class="field col-3">
+                <label for="phoneNumber">Телефонный номер</label><br />
+                <p-inputMask
+                  mask="(99999)999-99-99"
+                  formControlName="phoneNumber"
+                  placeholder="(00000)-000-00-00"
+                ></p-inputMask>
+                <small
+                  *ngIf="filialsForm.phoneNumber.invalid && isSubmitted"
+                  class="p-error"
+                  >Укажите номер телефона.</small
+                >
+              </div>
+
+              <div class="field col-3">
+                <label for="cardNumber">Номер карты</label><br />
+                <p-inputMask
+                  mask="9999-9999-9999-9999"
+                  formControlName="cardNumber"
+                  placeholder="0000-0000-0000-0000"
+                ></p-inputMask>
+                <small
+                  *ngIf="filialsForm.cardNumber.invalid && isSubmitted"
+                  class="p-error"
+                  >Требуется номер карты</small
+                >
+              </div>
+
+              <div class="field col-3">
+                <label for="typeFilial">Тип филиала</label>
+                <input
+                  formControlName="typeFilial"
+                  id="typeFilial"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                  placeholder="Please enter Type filial"
+                />
+                <small
+                  *ngIf="filialsForm.typeFilial.invalid && isSubmitted"
+                  class="p-error"
+                  >Тип филиала требуется</small
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

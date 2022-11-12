@@ -1,0 +1,48 @@
+<!-- <div class="order-summary">
+  <h3>Order Summary</h3>
+  <div class="summary-price">
+    <span>Items Price</span>
+    <span>{{ totalPrice | currency }}</span>
+  </div>
+  <div class="summary-price">
+    <span>Packing & Shipping</span>
+    <span class="free">Free</span>
+  </div>
+  <div class="to-checkout">
+    <div class="summary-price">
+      <span>Total Price</span>
+      <span>{{ totalPrice | currency }}</span>
+    </div>
+    <div class="checkout-button" *ngIf="!isCheckout">
+      <p-button label="Checkout" (onClick)="navigateToCheckout()"></p-button>
+    </div>
+  </div>
+</div> -->
+
+<div class="order-summary">
+  <h3>Order Summary</h3>
+  <div class="summary-price-block">
+
+    <div class="price-details">
+      <div class="price-detail">
+        <span>Items Price</span>
+        <span>{{ totalPrice | currency }}</span>
+      </div>
+      <div class="price-detail">
+        <span>Packing & Shipping</span>
+        <span>$ 0</span>
+      </div>
+    </div>
+
+    <div class="checkout-block">
+      <div class="total-price-block">
+        <div>Total</div>
+        <div>{{ totalPrice | currency }}</div>
+      </div>
+      <div class="checkout-button" *ngIf="!isCheckout">
+        <p-button class="checkout-btn" label="CheckOut" (onClick)="navigateToCheckout()"></p-button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,177 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card header="Pokupka Data" subheader="List of all Pokupka Data">
+    <div class="grid">
+      <button
+        type="button"
+        label="Download Excel"
+        pButton
+        pRipple
+        icon="pi pi-file-excel"
+
+        class="p-button-outlined p-button-success p-button-sm ml-2"
+        pTooltip="XLS"
+        tooltipPosition="bottom"
+      ></button>
+      <div class="col-12"></div>
+    </div>
+    <div class="card">
+      <h4>List for Pokupka</h4>
+      <p-table
+
+        [paginator]="true"
+        [rows]="8"
+        [value]="callCenterTwo"
+        dataKey="_id"
+        editMode="row"
+        responsiveLayout="scroll"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Оператор</th>
+            <th>Телефонный номер</th>
+            <th>Ф.И.О клиента</th>
+            <th>Товар</th>
+            <th>Способ оплаты</th>
+            <th>Менеджер</th>
+            <th>Статус</th>
+            <th>Партнер</th>
+            <th>номер заказа</th>
+            <th>ID партнера</th>
+            <th>Статус закупа</th>
+            <th style="width: 8rem"></th>
+          </tr>
+        </ng-template>
+
+        <ng-template
+          pTemplate="body"
+          let-callcenter
+          let-editing="editing"
+          let-ri="rowIndex"
+        >
+          <tr [pEditableRow]="callcenter">
+            <td>
+              {{ callcenter.operator }}
+            </td>
+            <td>
+              {{ callcenter.phoneNumber }}
+            </td>
+            <td>
+              {{ callcenter.clientFullName }}
+            </td>
+            <td>
+              {{ callcenter.product }}
+            </td>
+            <td>
+              {{ callcenter.payMethod }}
+            </td>
+            <td>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <p-dropdown
+                    [options]="managers"
+                    [(ngModel)]="selectedManager"
+                    placeholder="Select a Manager"
+                    optionLabel="name"
+                    [showClear]="true"
+                  ></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{ callcenter.manager }}
+                </ng-template>
+              </p-cellEditor>
+            </td>
+
+            <td>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <p-dropdown
+                    [options]="statuses"
+                    [(ngModel)]="selectedStatus"
+                    placeholder="Select a Status"
+                    optionLabel="name"
+                    [showClear]="true"
+                  ></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{ callcenter.status }}
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <p-dropdown
+                    [options]="partners"
+                    [(ngModel)]="selectedPartner"
+                    placeholder="Select a Partner"
+                    optionLabel="name"
+                    [showClear]="true"
+                  ></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{ callcenter.partner }}
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <input pInputText type="text" [(ngModel)]="orderNumber" />
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{ callcenter.orderNumber }}
+                </ng-template>
+              </p-cellEditor>
+              <!-- {{ callcenter.orderNumber }}
+              233 -->
+            </td>
+            <td>
+              {{ callcenter.partnerId }}
+            </td>
+            <td>
+              {{ callcenter.statusZakup }}
+            </td>
+            <td style="text-align: center">
+              <button
+                *ngIf="!editing"
+                pButton
+                pRipple
+                type="button"
+                pInitEditableRow
+                icon="pi pi-pencil"
+                (click)="onRowEditInit(callcenter)"
+                class="p-button-rounded p-button-text"
+              ></button>
+              <button
+                *ngIf="editing"
+                pButton
+                pRipple
+                type="button"
+                pSaveEditableRow
+                icon="pi pi-check"
+                (click)="onRowEditSave(callcenter); onSubmit(callcenter)"
+                class="p-button-rounded p-button-text p-button-success mr-2"
+              ></button>
+              <button
+                *ngIf="editing"
+                pButton
+                pRipple
+                type="button"
+                pCancelEditableRow
+                icon="pi pi-times"
+                (click)="onRowEditCancel(callcenter, ri)"
+                class="p-button-rounded p-button-text p-button-danger"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-card>
+</div>
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>

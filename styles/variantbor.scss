@@ -1,0 +1,70 @@
+//Base
+@import '~normalize.css/normalize.css';
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
+
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/lara-light-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeflex/primeflex.scss';
+@import './base/configuration.scss';
+//Pages
+
+@import './apps/shop/pages/home-page.scss';
+@import './apps/shop/pages/product-list-page.scss';
+
+//Shared
+@import './libs/orders/order.scss';
+//
+
+@import './apps/shop/shared/header.scss';
+@import './apps/shop/shared/footer.scss';
+@import './apps/shop/shared/nav.scss';
+//Libs
+@import './libs/products/products.scss';
+@import './libs/ui/ui.scss';
+
+html {
+	font-size: calc(9px + 5 *(100vw/1500));
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+body {
+  width: 100%;
+	max-width: 100vw;
+	position: relative;
+  margin: 0;
+	
+	background-color: rgb(255, 255, 255);
+
+  font-family: 'Roboto', sans-serif;
+	color: #495057;
+	font-size: 1rem;
+}
+
+
+//Ochirish kere
+/*
+.container{
+  width: 1200px;
+  padding: 10px;
+  margin:0 auto;
+  background-color: var(--surface-100);
+}
+*/
+

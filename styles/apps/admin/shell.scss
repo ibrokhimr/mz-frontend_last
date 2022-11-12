@@ -1,0 +1,605 @@
+.admin {
+  &-wrapper {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-main {
+    width: 100%;
+    margin-left: 1px;
+
+    th,
+    td {
+      font-size: 10px
+    }
+  }
+
+  &-sidebar {
+
+    position: fixed;
+    width: 173px;
+    background-color: #e3e7e7;
+    height: 100%;
+    top: 0;
+
+    .logo {
+
+      padding: 20px;
+      width: 100%;
+      margin-top: -50px;
+      margin-bottom: -60px;
+
+      img {
+        max-width: 100%;
+
+      }
+    }
+
+
+    .links {
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: block;
+          list-style: none;
+          width: 100%;
+
+          a {
+            color: var(--blue-700);
+            padding: 8px 10px;
+            display: block;
+            width: 100%;
+
+            i {
+              margin-right: 8px;
+              margin-top: 0;
+              float: left;
+            }
+
+            &.logout {
+              color: var(--blue-500);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-page {
+    padding: 20px;
+    margin-left: 11%;
+
+    .scoring-btn-block {
+      width: 90%;
+      margin: 0 auto;
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      text-align: left;
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .scoring-form-data-block {
+      width: 90%;
+      margin: 2rem auto;
+
+
+      .scoring-row-1 {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .form-step-1 {
+        background: rgb(250, 250, 250);
+        width: 50%;
+        border-radius: 15px;
+        border: 1px solid #e2e2e2;
+        padding: 1.5rem 1rem;
+
+        .input-data {
+          display: flex;
+          justify-content: space-between;
+
+          .input-content {
+            width: 65%;
+
+            div {
+              width: 100%;
+              margin: 1rem 0;
+              padding: 0.8rem 1rem;
+              background-color: #f1f1f1;
+              border-radius: 5px;
+            }
+          }
+
+          .select-status {
+            width: 30%;
+            padding-top: 1rem;
+
+            .p-dropdown {
+              width: 100%;
+            }
+          }
+        }
+
+        .step-btn-block {
+          width: 100%;
+          text-align: end;
+
+          .scoring-btn {
+            padding: 0.6rem 4.3rem;
+            background-color: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 2rem;
+          }
+        }
+      }
+
+      .form-left {
+        width: 47%;
+
+        .scoring-btn-block {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: rgb(250, 250, 250);
+          width: 100%;
+          border: 1px solid #e2e2e2;
+          border-radius: 15px;
+          padding: 2rem 2rem;
+          text-align: left;
+          margin-bottom: 2rem;
+
+          .scoring-btn {
+            padding: 0.6rem 1.5rem;
+            background-color: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 1rem;
+          }
+        }
+
+        .form-step-2 {
+          background: rgb(250, 250, 250);
+          width: 100%;
+          border-radius: 15px;
+          border: 1px solid #e2e2e2;
+          padding: 1rem 1rem;
+
+          .code-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .code-scoring {
+              width: 60%;
+              padding: 1rem;
+
+              div {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                background-color: #f1f1f1;
+                border-radius: 5px;
+              }
+            }
+
+            .code-status {
+              width: 35%;
+              padding: 1rem;
+
+              .p-dropdown {
+                width: 100%;
+              }
+            }
+          }
+
+          .step-btn-block {
+            width: 100%;
+            text-align: end;
+
+            .scoring-btn {
+              padding: 0.6rem 3.7rem;
+              background-color: #3B82F6;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+
+      .form-step-3 {
+        background: rgb(250, 250, 250);
+        margin-top: 2rem;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #e2e2e2;
+        padding: 1.5rem 1rem 2rem 1rem;
+
+        .input-data {
+          display: flex;
+          // justify-content: space-between;
+
+          .input-content {
+            width: 30%;
+            margin-right: 3rem;
+
+            div {
+              width: 100%;
+              margin: 1rem 0;
+              padding: 0.8rem 1rem;
+              background-color: #f1f1f1;
+              border-radius: 5px;
+            }
+          }
+
+          .select-status {
+            width: 30%;
+            padding-top: 1rem;
+            text-align: end;
+
+            .p-dropdown {
+              width: 60%;
+            }
+
+            div {
+
+              input {
+                margin-top: 1rem;
+                width: 90%;
+                border: 1px solid #e2e2e2;
+                padding: 0.7rem 1rem;
+                border-radius: 5px;
+                background: #f1f1f1;
+
+                &::placeholder {
+                  color: #02020243;
+                }
+              }
+            }
+          }
+
+          .dowlooad-block {
+            width: 30%;
+          }
+        }
+
+        .step-btn-block {
+          width: 100%;
+          text-align: end;
+
+          .scoring-btn {
+            padding: 0.6rem 4.3rem;
+            background-color: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 2rem;
+          }
+        }
+      }
+
+      .form-step-4 {
+        background: rgb(250, 250, 250);
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #e2e2e2;
+        margin-top: 1.5rem;
+        padding: 1.5rem 1rem;
+
+        .status-right-wrong-btn {
+          // width: 100%;
+          justify-content: end;
+          display: flex;
+          align-items: center;
+          text-align: center;
+
+          .step-btn-block {
+            margin-left: 2rem;
+
+            // width: 15%;
+            .scoring-btn {
+              width: 100%;
+
+              padding: 0.6rem 2rem;
+              border: none;
+              background: #3B82F6;
+              color: white;
+              margin: 0;
+              border-radius: 5px;
+              cursor: pointer;
+
+              &:hover {
+                background: #136dfd;
+              }
+
+              &:focus {
+                background: #136dfd;
+              }
+
+              &:active {
+                background: #136dfd;
+              }
+            }
+          }
+        }
+
+        .dow-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+
+          .scoring-card {
+            width: 22%;
+            text-align: center;
+
+            .scoring-label {
+              padding: 0.5rem 1rem;
+              display: block;
+              text-align: left;
+            }
+
+            .scoring-btn {
+              width: 100%;
+              padding: 0.5rem 1rem;
+              border: none;
+              background: #3B82F6;
+              color: white;
+              margin: 0;
+              border-radius: 5px;
+              cursor: pointer;
+
+              &:hover {
+                background: #136dfd;
+              }
+
+              &:focus {
+                background: #136dfd;
+              }
+
+              &:active {
+                background: #136dfd;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.upload-label {
+  text-align: center;
+  padding: 0.7rem 0;
+  background: #3B82F6;
+  border-radius: 7px;
+  color: white;
+  margin: 1rem 0 1rem 0;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background: #136dfd;
+  }
+
+  &:focus {
+    background: #136dfd;
+  }
+
+  &:active {
+    background: #136dfd;
+  }
+}
+
+.scoring-input {
+  display: none;
+}
+
+.scoring-up-dow-block {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.scoring-upload-block {
+  width: 100%;
+}
+
+.scoring-dowload-block {
+  width: 100%;
+  margin: 2rem 0;
+
+  .scoring-card {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .scoring-label {
+      padding: 0.5rem 1rem;
+    }
+
+    .scoring-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #3B82F6;
+      color: white;
+      margin: 0;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: #136dfd;
+      }
+
+      &:focus {
+        background: #136dfd;
+      }
+
+      &:active {
+        background: #136dfd;
+      }
+    }
+  }
+}
+.procent-btn {
+  padding: 0.5rem 1rem;
+  background: $admin-content-bg-color6;
+  border: none;
+  border-radius: 5px;
+  margin-right: 2rem;
+  margin-left: 1rem;
+}
+
+.margin-for-hidden-procent-btn {
+  margin-right: 0;
+}
+.procent-div-block {
+  display: inline-block;
+
+  input {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-left: 1rem;
+    border: none;
+    outline: none;
+  }
+}
+
+.shops-form-block {
+
+  .shop-center-block {
+    margin: 2rem auto;
+    max-width: 1000px;
+    width: 70%;
+    background-color: $admin-content-bg-color;
+    border-radius: 15px;
+    padding: 2rem;
+
+    .shop-form-block {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shop-info-block {
+      border-bottom: 1px solid $admin-content-bg-color4;
+      padding-bottom: 2rem;
+      padding-left: 1rem;
+    }
+
+    .border-right {
+      border-right: 1px solid $admin-content-bg-color4;
+      padding-right: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 2rem 0 1rem 0;
+    }
+
+    input {
+      display: block;
+      width: 80%;
+      margin: 0.5rem auto;
+      padding: 0.5rem 0.5rem;
+      border-radius: 5px;
+      border: 1px solid $admin-font-color;
+
+      &:hover {
+        border: 1px solid $admin-secondary-color;
+        outline: none;
+      }
+
+      &:focus {
+        border: 1px solid $admin-secondary-color;
+        outline: none;
+        box-shadow: inset 0 0 10px #333;
+      }
+
+      &:active {
+        border: 1px solid $admin-secondary-color;
+        outline: none;
+      }
+    }
+
+    select {
+      display: block;
+      width: 80%;
+      margin: 0.5rem auto;
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+    }
+
+    .shop-form-btn-block {
+      margin-top: 4rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      justify-content: space-around;
+
+      button {
+        display: block;
+        background-color: $primary-color;
+        border-radius: 5px;
+        border: none;
+        padding: 0.5rem 3rem;
+        color: $admin-font-color;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 0 0 10px $admin-secondary-color;
+        }
+      }
+    }
+  }
+
+  .drop-down-block {
+    width: 80%;
+    margin: 0 auto;
+
+    .p-dropdown {
+      width: 100%;
+      background: white;
+    }
+  }
+
+  .procent-block {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+}
+
+
+

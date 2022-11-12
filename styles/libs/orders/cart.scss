@@ -1,0 +1,217 @@
+// .cart-page {
+//   min-height: 500px;
+
+//   button {
+//     background-color: $primary-color;
+//     border: 0;
+//   }
+//   .cart {
+//     &-shipping {
+//       color: var(--green-700);
+//     }
+
+//     &-item {
+//       background-color: var(--surface-0);
+//       border: 1px solid var(--surface-300);
+//       padding: 15px;
+//       border-radius: 15px;
+
+//       &-image {
+//         img {
+//           height: 120px;
+//           max-width: 100%;
+//         }
+//       }
+
+//       &-name {
+//         font-weight: 600;
+//         font-size: 1.2em;
+//         margin-bottom: 15px;
+//       }
+
+//       &-price {
+//         font-weight: 600;
+//         font-size: 1.2em;
+//         margin-bottom: 15px;
+//         color: $primary-color;
+//       }
+
+//       &-quantity {
+//         margin: 15px 0;
+//       }
+
+//       &-subtotal {
+//         font-weight: 600;
+//         &-value {
+//           color: var(--green-600);
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+.cart-page {
+  width: 100%;
+
+  .cart-page-content {
+    width: 85%;
+    max-width: 1500px;
+    margin: 3rem auto 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    .cart-page-content-left {
+      width: 65%;
+
+      .btn-to-back {
+        margin-bottom: 2rem;
+
+        .p-button {
+          background: #333333;
+          border: none;
+          transition: all 0.3s linear;
+
+          .pi-arrow-left {
+            transition: all 0.3s linear;
+          }
+
+          &:hover {
+            background: rgb(20, 20, 20);
+
+            .pi-arrow-left {
+              transform: translateX(-7px);;
+            }
+          }
+        }
+      }
+
+      .shop-name-block {
+        padding: 1.2rem;
+        border: 1px solid #e2e2e2;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          font-size: 1.2rem; 
+
+          i {
+            &::before {
+              font-size: 2rem;
+              font-weight: 100;
+              color: #a1a1a1;
+            }
+          }
+        }
+      }
+
+      .item-list-block {
+        padding: 1.2rem;
+        border: 1px solid #e2e2e2;
+        border-radius: 5px;
+
+        .tr-th {
+          width: 100%;
+          display: flex;
+          border-bottom: 3px solid #333333;
+          padding: 1rem 0;
+          align-items: center;
+
+          .th {
+            font-weight: 700;
+          }
+
+          .th-product {
+            width: 50%;
+              
+          }
+
+          .th-price {
+            width: 10%;
+          }
+
+          .th-quantity {
+            width: 20%;
+          }
+        }
+
+        .tr-tr {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          padding: 1rem 0;
+          border: 1px solid #e2e2e2;
+
+          .td-product {
+            padding-left: 1rem;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+
+            .cart-product-img-block {
+              margin-right: 1rem;
+              display: inline-block;
+              width: 70px;
+              height: 70px;
+              position: relative;
+              overflow: hidden;
+
+              img {
+                position: absolute;
+                object-fit: cover;
+                object-position: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+          .td-price {
+            width: 10%;
+
+            .p-ripple {
+              background: #333333;
+              border: none;
+            }
+          }
+
+          .td-quantity {
+            width: 20%;
+
+            .p-element {
+              width: 90%;
+              display: flex;
+
+              .p-inputtext {
+                width: 80%;
+              }
+
+              .p-inputnumber-button-group {
+                width: 20%;
+
+                .p-inputnumber-button {
+                  background: #333333;
+                  border: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .cart-page-content-right {
+      width: 33%;
+    }
+  }
+}

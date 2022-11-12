@@ -1,0 +1,40 @@
+.flash-sale {
+  width: 85%;
+  max-width: 1500px;
+  margin: 2rem auto;
+
+  .flash-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 1.5rem 0;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    a {
+      color: #495057;
+      text-decoration: none;
+      transition: all 0.3s linear;
+
+      &:hover {
+        color: #c9151b;
+      }
+
+      span {
+        font-size: 0.8rem;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  .qator2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 0 auto;
+  }
+}

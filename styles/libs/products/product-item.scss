@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+
+//featured products
+
+.qator .tovar-block {
+  .tovar-content {
+    margin-top: 2rem;
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    //padding: 1rem 0 0;
+    
+    .img-block {
+      width: 100%;
+      height: 17rem;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      //box-shadow: 0 3px 6px #00000029, 0 3px 6px #0000003b;
+      border-radius: 5px 5px 0 0;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        left: 0;
+        top: 0;
+  
+        &:hover {
+          cursor: pointer;
+        }
+        }
+    }
+    
+    .product-item-info-block {
+      background-color: #f2f2f2;
+      padding: 0 1rem 2rem;
+      position: relative;
+      border-radius: 0 0 5px 5px;
+  
+      .status {
+        display: block;
+        position: absolute;
+        top: -1.2rem;
+        left: 1rem;
+    
+        .sklad {
+          font-size: 0.9rem;
+          border-radius: 3px;
+          padding: 0.6rem 1rem;
+          color: #256029;
+          background-color: #C8E6C9;
+        }
+        
+        .sklad2 {
+          font-size: 0.9rem;
+          border-radius: 0 6px 6px 0;
+          padding: 0.2rem 0.4rem;
+          color: #8a5340;
+          background-color: #FEEDAF;
+        }
+        
+        .sklad3 {
+          font-size: 0.9rem;
+          border-radius: 0 6px 6px 0;
+          padding: 0.2rem 0.4rem;
+          color: #c63737;
+          background-color: #FFCDD2;
+        }
+      }
+  
+      .tovar-name {
+        font-size: 1.2rem;
+        height: 5rem;
+        font-weight: 400;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+      }
+  
+      .for-sale {
+        display: flex;
+        justify-content: space-between;
+      
+        .tovar-price {
+          font-size: 1.3rem;
+          position: relative;
+          color: #ff2b32;
+        
+          .past-price {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #333333;
+          }
+        }
+  
+        .add-to-cart {
+          color: #333333;
+          border-radius: 50%;
+          background-color: #ff2b3200;
+          transition: all 0.3s linear;
+          border: none;
+        
+          .pi::before {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    
+    .product-item-info-block .for-sale .add-to-cart:hover {
+      background-color: #ff2b32;
+      color: #f4f4f4;
+    }
+  }
+}
+
+
+
+//categories banner
+
+
+
+.qator2 .tovar-block {
+  .tovar-content {
+    margin-top: 2rem;
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    //padding: 1rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    
+    .img-block {
+      width: 50%;
+      height: 18rem;
+      position: relative;
+      overflow: hidden;
+      //box-shadow: 0 3px 6px #00000029, 0 3px 6px #0000003b;
+      border-radius: 5px 0 0 5px;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        left: 0;
+        top: 0;
+  
+        &:hover {
+          cursor: pointer;
+        }
+        }
+    }
+    
+    .product-item-info-block {
+      width: 50%;
+      background-color: #f2f2f2;
+      padding: 1rem 0 1rem 1rem;
+      border-radius: 0 0 5px 5px;
+  
+      .status {
+        display: flex;
+        justify-content: end;
+    
+        .sklad {
+          font-size: 0.9rem;
+          border-radius: 10px 0 0 10px;
+          padding: 0.6rem 1rem;
+          color: #256029;
+          background-color: #C8E6C9;
+        }
+        
+        .sklad2 {
+          font-size: 0.9rem;
+          border-radius: 0 6px 6px 0;
+          padding: 0.2rem 0.4rem;
+          color: #8a5340;
+          background-color: #FEEDAF;
+        }
+        
+        .sklad3 {
+          font-size: 0.9rem;
+          border-radius: 0 6px 6px 0;
+          padding: 0.2rem 0.4rem;
+          color: #c63737;
+          background-color: #FFCDD2;
+        }
+      }
+  
+      .tovar-name {
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-right: 1rem;
+      }
+  
+      .for-sale {
+        padding-right: 1rem;
+        display: flex;
+        justify-content: space-between;
+      
+        .tovar-price {
+          font-size: 1.3rem;
+          position: relative;
+          color: #333333;
+        
+          .past-price {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #a5a5a5;
+          }
+        }
+  
+        .add-to-cart {
+          color: #333333;
+          border-radius: 50%;
+          background-color: #ff2b3200;
+          transition: all 0.3s linear;
+          border: none;
+        
+          .pi::before {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    
+    .product-item-info-block .for-sale .add-to-cart:hover {
+      background-color: #ff2b32;
+      color: #f4f4f4;
+    }
+  }
+}
+
+
+
+//product-page
+
+
+.product-list-qator .tovar-block {
+  .tovar-content {
+    margin-top: 2rem;
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    //padding: 1rem 0 0;
+    
+    .img-block {
+      width: 100%;
+      height: 15rem;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      //box-shadow: 0 3px 6px #00000029, 0 3px 6px #0000003b;
+      border-radius: 5px 5px 0 0;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        left: 0;
+        top: 0;
+  
+        &:hover {
+          cursor: pointer;
+        }
+        }
+    }
+    
+    .product-item-info-block {
+      background-color: #f2f2f2;
+      padding: 0 1rem 2rem;
+      position: relative;
+      border-radius: 0 0 5px 5px;
+  
+      .status {
+        display: block;
+        position: absolute;
+        top: -1.2rem;
+        left: 1rem;
+    
+        .sklad {
+          font-size: 0.9rem;
+          border-radius: 3px;
+          padding: 0.6rem 1rem;
+          color: #256029;
+          background-color: #C8E6C9;
+        }
+        
+        .sklad2 {
+          font-size: 0.9rem;
+          border-radius: 0 6px 6px 0;
+          padding: 0.2rem 0.4rem;
+          color: #8a5340;
+          background-color: #FEEDAF;
+        }
+        
+        .sklad3 {
+          font-size: 0.9rem;
+          border-radius: 0 6px 6px 0;
+          padding: 0.2rem 0.4rem;
+          color: #c63737;
+          background-color: #FFCDD2;
+        }
+      }
+  
+      .tovar-name {
+        font-size: 1.2rem;
+        height: 5rem;
+        font-weight: 400;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+      }
+  
+      .for-sale {
+        display: flex;
+        justify-content: space-between;
+      
+        .tovar-price {
+          font-size: 1.3rem;
+          position: relative;
+          color: #ff2b32;
+        
+          .past-price {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #333333;
+          }
+        }
+  
+        .add-to-cart {
+          color: #333333;
+          border-radius: 50%;
+          background-color: #ff2b3200;
+          transition: all 0.3s linear;
+          border: none;
+        
+          .pi::before {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+    
+    .product-item-info-block .for-sale .add-to-cart:hover {
+      background-color: #ff2b32;
+      color: #f4f4f4;
+    }
+  }
+}

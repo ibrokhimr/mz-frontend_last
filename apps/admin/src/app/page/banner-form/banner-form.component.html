@@ -1,0 +1,82 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card
+    [header]="editMode ? 'Edit Banner Image' : 'Add Banner Image'"
+    subheader="You can add or edit Banner Image"
+  >
+    <div class="grid">
+      <div class="col-12 mb-5">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button
+            pButton
+              class="p-button-outlined p-button-raised p-button-success mr-4 p-button-sm"
+              [label]="editMode ? 'Update' : 'Create'"
+              icon="pi pi-plus"
+              (click)="onSubmit()"
+            ></button>
+            <button
+            pButton
+              class="p-button-outlined p-button-raised p-button-secondary mr-4 p-button-sm"
+             label="Cancel"
+              icon="pi pi-arrow-circle-left"
+              (click)="onCancel()"
+            ></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="formgrid grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="card">
+            <h5>Form for Banner Image</h5>
+            <div class="formgrid grid">
+              <div class="field col-2">
+                <label for="name">Name</label>
+                <input
+                  formControlName="name"
+                  id="name"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                />
+                <small
+                  *ngIf="bannerForm.name.invalid && isSubmitted"
+                  class="p-error"
+                  >Name is required</small
+                >
+              </div>
+
+              <div class="field col-3">
+                <label for="image">Image Upload</label><br />
+                <input
+                  type="file"
+                  class="p-inputtext"
+                  accept="image/*"
+                  (change)="onImageUpload($event)"
+                />
+                <small
+                  *ngIf="bannerForm.image.invalid && isSubmitted"
+                  class="p-error"
+                  >Image is required</small
+                >
+                <div class="col-2 mt-2 pl-0">
+                  <img style="width: 100%" [src]="imageDisplay" alt="" />
+                </div>
+              </div>
+              <div class="field col-2 mt-3">
+                <label for="isDiscount">Is Discount</label><br />
+                <p-inputSwitch
+                  class="inputfield w-full"
+                  formControlName="isDiscount"
+                ></p-inputSwitch>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

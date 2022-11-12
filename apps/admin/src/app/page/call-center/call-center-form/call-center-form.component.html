@@ -1,0 +1,234 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card
+    [header]="
+      editMode
+        ? 'Изменить данные для колл-центра'
+        : 'Добавить данные для колл-центра'
+    "
+    subheader="Вы можете добавлять или редактировать данные для колл-центра"
+  >
+    <div class="grid">
+      <div class="col-12 mb-5">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button
+              pButton
+              class="p-button-outlined p-button-raised p-button-success p-button-sm mr-4"
+              [label]="editMode ? 'Update' : 'Create'"
+              icon="pi pi-plus"
+              (click)="onSubmit()"
+            ></button>
+            <button
+            pButton
+             class="p-button-outlined p-button-raised p-button-secondary p-button-sm"
+              label="Cancel"
+              icon="pi pi-arrow-circle-left"
+              (click)="onCancel()"
+            ></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="card">
+            <h2 class="mb-5">Форма для колл-центра</h2>
+
+            <div class="formgrid grid">
+              <div class="field col-2">
+                <label class="mr-3">Оператор</label><br />
+                <p-dropdown
+                  [options]="operators"
+                  formControlName="operator"
+                  [(ngModel)]="selectedOperator"
+                  placeholder="Select a Operator"
+                  optionLabel="name"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+
+              <div class="field col-2">
+                <span>Тип звонка</span>
+                <hr />
+                <div class="field-radiobutton mt-3">
+                  <p-radioButton
+                    name="typeCall"
+                    value="Входяший"
+                    formControlName="typeCall"
+                    inputId="typeCall1"
+                  ></p-radioButton>
+                  <label for="typeCall1">Входяший</label>
+                </div>
+                <div class="field-radiobutton">
+                  <p-radioButton
+                    name="typeCall"
+                    value="Исходящий"
+                    formControlName="typeCall"
+                    inputId="typeCall2"
+                  ></p-radioButton>
+                  <label for="typeCall2">Исходящий</label>
+                </div>
+                <div class="field-radiobutton">
+                  <p-radioButton
+                    name="typeCall"
+                    value="Пропушенный"
+                    formControlName="typeCall"
+                    inputId="typeCall3"
+                  ></p-radioButton>
+                  <label for="typeCall3">Пропушенный</label>
+                </div>
+              </div>
+              <div class="field col-2">
+                <label for="phoneNumber">Телефонный номер</label><br />
+                <p-inputMask
+                  mask="(999)(99)-999-99-99"
+                  formControlName="phoneNumber"
+                  placeholder="(998)(00)-000-00-00"
+                ></p-inputMask>
+                <small
+                  *ngIf="centerForm.phoneNumber.invalid && isSubmitted"
+                  class="p-error"
+                  >Требуется номер телефона</small
+                >
+              </div>
+              <div class="field col-2">
+                <label for="clientFullName">Полное имя клиента</label>
+                <input
+                  formControlName="clientFullName"
+                  id="clientFullName"
+                  type="text"
+                  class="inputfield w-full"
+                  pInputText
+                />
+                <small
+                  *ngIf="centerForm.clientFullName.invalid && isSubmitted"
+                  class="p-error"
+                  >Требуется полное имя клиента</small
+                >
+              </div>
+              <div class="field col-2">
+                <label class="mr-3">Источник клиента</label><br />
+                <p-dropdown
+                  [options]="companies"
+                  formControlName="source"
+                  [(ngModel)]="selectedCompany"
+                  placeholder="Select a Company"
+                  optionLabel="name"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+
+              <div class="field col-12">
+                <div class="card">
+                  <h3>Причина звонка</h3>
+                  <p-tabView>
+                    <p-tabPanel header="Покупка">
+                      <div class="field col-4 mt-5">
+                        <label for="product">Товар</label>
+                        <input
+                          formControlName="product"
+                          id="product"
+                          type="text"
+                          class="inputfield w-full"
+                          pInputText
+                        />
+                        <small
+                          *ngIf="centerForm.product.invalid && isSubmitted"
+                          class="p-error"
+                          >Требуется продукт</small
+                        >
+                      </div>
+
+                      <div class="field col-4 mt-5">
+                        <span>Способ оплаты</span>
+                        <hr />
+                        <div class="field-radiobutton mt-3">
+                          <p-radioButton
+                            name="payMethod"
+                            value="Наличные"
+                            formControlName="payMethod"
+                            inputId="payMethod1"
+                          ></p-radioButton>
+                          <label for="payMethod1">Наличные</label>
+                        </div>
+                        <div class="field-radiobutton">
+                          <p-radioButton
+                            name="payMethod"
+                            value="Терминал"
+                            formControlName="payMethod"
+                            inputId="payMethod2"
+                          ></p-radioButton>
+                          <label for="payMethod2">Терминал</label>
+                        </div>
+                        <div class="field-radiobutton">
+                          <p-radioButton
+                            name="payMethod"
+                            value="Перечисление"
+                            formControlName="payMethod"
+                            inputId="payMethod3"
+                          ></p-radioButton>
+                          <label for="payMethod3">Перечисление</label>
+                        </div>
+                        <div class="field-radiobutton">
+                          <p-radioButton
+                            name="payMethod"
+                            value="Рассрочка"
+                            formControlName="payMethod"
+                            inputId="payMethod3"
+                          ></p-radioButton>
+                          <label for="payMethod3">Рассрочка</label>
+                        </div>
+                        <div class="field-radiobutton">
+                          <p-radioButton
+                            name="payMethod"
+                            value="Биржа"
+                            formControlName="payMethod"
+                            inputId="payMethod3"
+                          ></p-radioButton>
+                          <label for="payMethod3">Биржа</label>
+                        </div>
+                      </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Информация">
+                      <div class="field col-2">
+                        <label class="mr-3">Информация</label><br />
+                        <p-dropdown
+                          [options]="infoes"
+                          formControlName="information"
+                          [(ngModel)]="selectedInfo"
+                          placeholder="Select a Information"
+                          optionLabel="name"
+                          [showClear]="true"
+                        ></p-dropdown>
+                      </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Джалоба">
+                      <div class="field col-4 mt-5">
+                        <label for="report">Комментарий</label>
+                        <input
+                          formControlName="report"
+                          id="report"
+                          type="textarea"
+                          class="inputfield w-full"
+                          pInputText
+                        />
+                        <small
+                          *ngIf="centerForm.report.invalid && isSubmitted"
+                          class="p-error"
+                          >Требуется комментарий</small
+                        >
+                      </div>
+                    </p-tabPanel>
+                  </p-tabView>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

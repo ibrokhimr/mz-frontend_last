@@ -1,0 +1,331 @@
+<p-toast></p-toast>
+<!-- <div class="admin-page scoring">
+  <p-card [header]="editMode ? 'Edit Scoring' : 'Add Scoring'" subheader="You can add or edit Scoring">
+    <div class="grid">
+      <div class="col-12 mb-5">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <button pButton class="p-button-outlined p-button-raised p-button-success p-button-sm mr-4"
+              [label]="editMode ? 'Update' : 'Create'" icon="pi pi-plus" (click)="onSubmit()"></button>
+            <button pButton styleClass="p-button-secondary" label="Cancel"
+              class="p-button-outlined p-button-raised p-button-secondary p-button-sm" icon="pi pi-arrow-circle-left"
+              (click)="onCancel()"></button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="formgrid grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="card">
+            <h5>Client Info</h5>
+            <div class="formgrid grid">
+              <div class=" formgrid grid field col-6">
+                <div class="field col-4">
+
+                  <div class="field">
+                    <h5>Passport Info</h5>
+                      <p>{{scoring.passportSeries}}</p>
+                  </div>
+
+                  <div class="field">
+                    <h5>Birthday</h5>
+                    <p>{{scoring.date}}</p>
+                  </div>
+
+                  <div class="field">
+                    <h5>Phone Number</h5>
+                    <p>{{scoring.phoneNumber}}</p>
+                  </div>
+                </div>
+                <div *ngIf="scoring.step==1" class="field col-4">
+                  <label for="statusAdmin">Select Status</label><br />
+                  <p-dropdown  formControlName="statusAdmin" [options]="dataStatuses" optionLabel="status"
+                    optionValue="status" [filter]="false" filterBy="name" [showClear]="true"></p-dropdown>
+                  <small *ngIf="scoringForm.statusAdmin.invalid && isSubmitted" class="p-error">Status is
+                    required</small>
+                    <button (click)="onSubmit()">Send</button>
+                </div>
+                <div *ngIf="scoring.step==2">Right Data</div>
+              </div>
+              <div class=" formgrid grid field col-6">
+                <div class="field col-4">
+                  <h5>Code</h5>
+                  <p>{{scoring.codeConfirmation}}</p>
+                </div>
+
+                <div *ngIf="scoring.step==1" class="field col-4">
+                  <label for="statusAdmin">Select Status</label><br />
+                  <p-dropdown formControlName="statusAdmin" [options]="dataStatuses" optionLabel="status"
+                    optionValue="status" [filter]="false" filterBy="name" [showClear]="true"></p-dropdown>
+                  <small *ngIf="scoringForm.statusAdmin.invalid && isSubmitted" class="p-error">Status is
+                    required</small>
+                </div>
+              </div>
+            </div>
+            <h5>Vertical and Grid</h5>
+            <div class="formgrid grid">
+              <div class="field col-6">
+                <label for="statusAdmin">Select Status</label><br />
+                <p-dropdown formControlName="statusAdmin" [options]="statuses" optionLabel="status" optionValue="status"
+                  [filter]="false" filterBy="name" [showClear]="true"></p-dropdown>
+                <small *ngIf="scoringForm.statusAdmin.invalid && isSubmitted" class="p-error">Status is required</small>
+              </div>
+
+              <div class="field col-6">
+                <label for="name">Limit money</label>
+                <input formControlName="limitMoney" id="name" type="text" class="inputfield w-full" pInputText />
+                <small *ngIf="scoringForm.limitMoney.invalid && isSubmitted" class="p-error">Limit money is
+                  required</small>
+              </div>
+
+              <div class="field col-4">
+                <label for="name">Product Name</label>
+                <p>{{scoring.productName}}</p>
+                <small *ngIf="scoringForm.productName.invalid && isSubmitted" class="p-error">Limit money is
+                  required</small>
+              </div>
+
+              <div class="field col-4">
+                <label for="name">Product Price</label>
+                <p>{{scoring.productPrice}}</p>
+                <small *ngIf="scoringForm.productName.invalid && isSubmitted" class="p-error">Limit money is
+                  required</small>
+              </div>
+
+              <div class="field col-4">
+                <label for="name">term</label>
+                <p>{{scoring.term }}</p>
+                <small *ngIf="scoringForm.term.invalid && isSubmitted" class="p-error">Limit money is required</small>
+              </div>
+              <div class="scoring-up-dow-block">
+                <div class="scoring-upload-block">
+                  <div class="scoring-card">
+                    <label class="upload-label" for="dogo">Dogovor Upload</label>
+                    <input type="file" id="dogo" class="scoring-input" accept="file/*"
+                      (change)="onFileUpload1($event)" />
+                    <p>{{document1}}</p>
+                  </div>
+                  <div class="scoring-card">
+                    <label class="upload-label" for="zayav">Zayavleniya Upload</label>
+                    <input type="file" id="zayav" class="scoring-input" accept="file/*"
+                      (change)="onFileUpload2($event)" />
+                    <p>{{document2}}</p>
+                  </div>
+                </div>
+
+                <div class="scoring-dowload-block">
+                  <div class="scoring-card">
+                    <label class="scoring-label">Dogovor</label>
+                    <img src="" alt="" />
+                    <button (click)="downloadFile('file1')" mat-raised-button class="scoring-btn" color="primary">
+                      Download
+                    </button>
+                  </div>
+                  <br />
+                  <div class="scoring-card">
+                    <label class="scoring-label">Zayavleniya</label>
+                    <button (click)="downloadFile('file2')" mat-raised-button class="scoring-btn" color="primary">
+                      Download
+                    </button>
+                  </div>
+                  <br />
+                  <div class="scoring-card">
+                    <label class="scoring-label">Passport (Skaner)</label>
+                    <button (click)="downloadFile('file3')" mat-raised-button class="scoring-btn" color="primary">
+                      Download
+                    </button>
+                  </div>
+                  <br />
+                  <div class="scoring-card">
+                    <label class="scoring-label">Passport Selfi (Skaner)</label>
+                    <button (click)="downloadFile('file4')" mat-raised-button class="scoring-btn" color="primary">
+                      Download
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div> -->
+
+<div class="admin-page">
+  <div class="scoring-btn-block">
+    <h1>Редактирование Документа</h1>
+  </div>
+  <form [formGroup]="form">
+    <div class="scoring-form-data-block">
+      <div class="scoring-row-1">
+        <div class="form-step-1">
+          <div class="input-data">
+            <div class="input-content">
+              <div>{{scoring.clientName }}</div>
+              <div>{{scoring.passportSeries }}</div>
+              <div>{{scoring.date | date: 'dd-MM-yyyy'}}</div>
+              <div>{{scoring.phoneNumber }}</div>
+              <div>{{scoring.term }} месяц</div>
+            </div>
+
+            <div *ngIf="scoring.step==1" class="select-status">
+              <!-- 1-Step Status -->
+              <p-dropdown formControlName="selectedDataStatus" [options]="dataStatuses" optionLabel="status"
+                optionValue="value" [filter]="false" filterBy="name" [showClear]="true">
+              </p-dropdown>
+            </div>
+
+          </div>
+          <div *ngIf="scoring.step==1" class="step-btn-block">
+            <button (click)="submit1Step()" class="scoring-btn">Отправить</button>
+          </div>
+        </div>
+
+        <div class="form-left">
+          <div class="scoring-btn-block">
+            <!-- <button class="scoring-btn">Update</button> -->
+            <div>
+              <h4>Статус</h4><div>{{scoring.statusAdmin}}</div>
+            </div>
+            <div>
+              <!-- Step <div>{{scoring.step}}</div> -->
+            </div>
+            <button (click)="onsendArchive()" class="scoring-btn "
+              style="background-color:rgb(230, 33, 33);">Архив</button>
+            <button (click)="onCancel()" class="scoring-btn">Назад</button>
+          </div>
+          <div class="form-step-2">
+            <div class="code-content">
+              <div class="code-scoring">
+                <div>{{scoring.codeConfirmation }}</div>
+              </div>
+              <div *ngIf="scoring.step==3" class="code-status">
+                <!-- 2-Step Status -->
+                <p-dropdown formControlName="selectedDataStatus" [options]="dataStatuses" optionLabel="status"
+                  optionValue="value" [filter]="false" filterBy="name" [showClear]="true">
+                </p-dropdown>
+              </div>
+            </div>
+            <div *ngIf="scoring.step==3" class="step-btn-block">
+              <button (click)="submit2Step()" class="scoring-btn">Отправить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-step-3">
+        <div class="input-data">
+
+          <div *ngIf="scoring.step==4 || scoring.step==6" class="select-status">
+
+            <p-dropdown placeholder="Select Status" [(ngModel)]="selectedStatus" formControlName="statusAdmin"
+              [options]="statuses" optionLabel="status" optionValue="status" [filter]="false" filterBy="name"
+              [showClear]="true">
+            </p-dropdown>
+
+            <div>
+              <!-- <p *ngIf="selectedStatus=='Отказано'" style="color: red;">Введите Причину Отказа</p> -->
+              <!-- <p *ngIf="selectedStatus=='Успешнно'" style="color: green;">Введите Лимит</p> -->
+              <input class="mt-5" formControlName="limitMoney" type="text"
+                [placeholder]="selectedStatus=='Успешнно'?'Лимит сумма': selectedStatus=='Отказано'?'Причина отказа':''">
+
+              <!-- <p-inputNumber formControlName="limitMoney" mode="currency" currency="UZS" locale="de-DE" placeholder="Limit summa">
+              </p-inputNumber> -->
+            </div>
+            <div class="step-btn-block mt-4">
+              <button (click)="submit3Step()" class="scoring-btn">Отправить</button>
+            </div>
+          </div>
+          <div *ngIf="scoring.step>6" class="input-content">
+            <div *ngIf="scoring.productName">{{scoring.productName }}</div>
+            <div *ngIf="scoring.productPrice">{{scoring.productPrice | currency:' '}} сум</div>
+            <!-- <div *ngIf="scoring.term">{{scoring.term}} месяц</div> -->
+          </div>
+          <div *ngIf="scoring.step>6" class="input-content">
+            <!-- <h5>Status</h5> -->
+            <!-- <input disabled type="text" formControlName="statusAdmin"> -->
+            <!-- {{scoring.statusAdmin}} -->
+            <h4>Лимит сумма</h4>
+            {{scoring.limitMoney | currency: ' '}} сум
+            <!-- {{scoring.limitMoney | number: '2.3-2'}} сум -->
+
+          </div>
+          <!-- <div *ngIf="scoring.step==4" class="dowlooad-block"> -->
+          <div *ngIf="scoring.step==7" class="dowlooad-block">
+
+            <div class="scoring-upload-block">
+              <div class="scoring-card">
+                <label class="upload-label" for="dogo">Загрузить Договор</label>
+                <input type="file" id="dogo" class="scoring-input" accept="file/*" (change)="onFileUpload1($event)" />
+                <p>{{document1}}</p>
+              </div>
+
+              <div class="scoring-card">
+                <label class="upload-label" for="zayav">Загрузить Заявления</label>
+                <input type="file" id="zayav" class="scoring-input" accept="file/*" (change)="onFileUpload2($event)" />
+                <p>{{document2}}</p>
+              </div>
+            </div>
+            <div class="step-btn-block">
+              <button (click)="submit4Step()" class="scoring-btn">Отправить</button>
+            </div>
+
+          </div>
+          <div *ngIf="scoring.step!==7">
+
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="scoring.step==9" class="form-step-4">
+        <div class="dow-row">
+
+          <div class="scoring-card">
+            <label class="scoring-label">Договор</label>
+            <img src="" alt="" />
+            <button (click)="downloadFile('file1')" mat-raised-button class="scoring-btn" color="primary">
+              Скачать
+            </button>
+          </div>
+
+          <div class="scoring-card">
+            <label class="scoring-label">Заявления</label>
+            <button (click)="downloadFile('file2')" mat-raised-button class="scoring-btn" color="primary">
+              Скачать
+            </button>
+          </div>
+
+          <div class="scoring-card">
+            <label class="scoring-label">Паспорт (Сканер)</label>
+            <button (click)="downloadFile('file3')" mat-raised-button class="scoring-btn" color="primary">
+              Скачать
+            </button>
+          </div>
+
+          <div class="scoring-card">
+            <label class="scoring-label">Паспорт Селфи (Сканер)</label>
+            <button (click)="downloadFile('file4')" mat-raised-button class="scoring-btn" color="primary">
+              Скачать
+            </button>
+          </div>
+
+
+        </div>
+        <div class=" status-right-wrong-btn left mt-3">
+          <p-dropdown formControlName="selectedDataStatus" [options]="dataStatuses" optionLabel="status"
+            optionValue="value" [filter]="false" filterBy="name" [showClear]="true">
+          </p-dropdown>
+
+          <div class="step-btn-block">
+            <button (click)="submitLastStep()" class="scoring-btn">Отправить</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

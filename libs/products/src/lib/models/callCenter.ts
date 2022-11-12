@@ -1,0 +1,22 @@
+export class CallCenter{
+  id?:string;
+  partnerId?:string;
+  clientFullName?:string;
+  phoneNumber?:string;
+  source?:string
+  product?:boolean
+  operator?:string;
+  typeCall?:string;
+  orderNumber?:string;
+  status?:string;
+  payMethod?:string;
+  report?:string;
+  information?:string;
+  manager?:string;
+  comment?:string;
+  statusZakup?:string;
+  partner?:string;
+  zakupId?:string;
+  methodZakup?:string;
+  deliver?:string;
+}
