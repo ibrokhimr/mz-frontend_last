@@ -13,7 +13,8 @@ declare const require;
 })
 export class ShopsService {
   apiURLShops = 'http://localhost:3000/api/v1/' + 'shops';
-  apiURLProcent = 'http://localhost:3000/api/v1/shops/' + 'protsent';
+  apiURLShops1 = 'https://mobilezone-shop.herokuapp.com/api/v1/'+ 'shops';
+  // apiURLProcent = 'http://localhost:3000/api/v1/shops/' + 'protsent';
 
 
   constructor(
