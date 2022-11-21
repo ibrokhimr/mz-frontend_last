@@ -14,6 +14,7 @@ declare const require;
 export class ShopsService {
   apiURLShops = 'http://localhost:3000/api/v1/' + 'shops';
   apiURLShops1 = 'https://mobilezone-shop.herokuapp.com/api/v1/'+ 'shops';
+  apiURLShops2 = 'https://mzone.uz/api/v1/' +'shops'
   // apiURLProcent = 'http://localhost:3000/api/v1/shops/' + 'protsent';
 
 
@@ -25,27 +26,27 @@ export class ShopsService {
   }
 
   createShop(shop: Shop): Observable<Shop> {
-    return this.http.post<Shop>(this.apiURLShops, shop);
+    return this.http.post<Shop>(this.apiURLShops2, shop);
   }
 
   getShops(): Observable<Shop[]> {
-    return this.http.get<Shop[]>(this.apiURLShops);
+    return this.http.get<Shop[]>(this.apiURLShops2);
   }
 
   getShop(shopId: string): Observable<Shop> {
-    return this.http.get<Shop>(`${this.apiURLShops}/${shopId}`);
+    return this.http.get<Shop>(`${this.apiURLShops2}/${shopId}`);
   }
 
   updateShop(shop: Shop): Observable<Shop> {
-    return this.http.put<Shop>(`${this.apiURLShops}/${shop.id}`, shop);
+    return this.http.put<Shop>(`${this.apiURLShops2}/${shop.id}`, shop);
   }
 
   updateProcent(procent: Procent): Observable<Procent> {
-    return this.http.put<Procent>(`${this.apiURLShops}/foiz/togrlimiz`, procent);
+    return this.http.put<Procent>(`${this.apiURLShops2}/foiz/togrlimiz`, procent);
   }
 
   getProcent(): Observable<Procent[]> {
-    return this.http.get<Procent[]>(`${this.apiURLShops}/foiz/olamiz`);
+    return this.http.get<Procent[]>(`${this.apiURLShops2}/foiz/olamiz`);
   }
 
   // getUsers(): Observable<User[]> {

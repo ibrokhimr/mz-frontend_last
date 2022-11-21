@@ -11,11 +11,12 @@ import { LocalstorageService } from './localstorage.service';
 export class AuthService {
   apiURLUsers = 'https://mobilezone-shop.herokuapp.com/api/v1/' + 'users';
   apiURLUsers1 = 'http://localhost:3000/api/v1/'+ 'users';
+  apiURLNew = 'https://mzone.uz/api/v1/' +'users'
 
   constructor(private http: HttpClient, private token: LocalstorageService, private router: Router) {}
 
   login(email: string, password: string): Observable<User> {
-    return this.http.post<User>(`${this.apiURLUsers}/login`, {
+    return this.http.post<User>(`${this.apiURLNew}/login`, {
       email,
       password,
     });

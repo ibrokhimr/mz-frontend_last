@@ -14,6 +14,7 @@ export class CategoriesService {
   currentMessage = this.messageSource.asObservable();
   url = 'https://mobilezone-shop.herokuapp.com/api/v1/';
   url1 = 'http://localhost:3000/api/v1/'; //http://localhost:3000
+  url2 = 'https://mzone.uz/api/v1/';
   constructor(private http: HttpClient) {}
   //Messages
   changeMessage(message: string) {
@@ -73,43 +74,43 @@ export class CategoriesService {
 
   //Scoring
   getScoring(): Observable<Scoring[]> {
-    return this.http.get<Scoring[]>(this.url1 + `scoring`);
+    return this.http.get<Scoring[]>(this.url2 + `scoring`);
   }
 
   managerScoringDocs(userId: string): Observable<Scoring[]> {
-    return this.http.get<Scoring[]>(this.url1 + `scoring/manager/` + userId);
+    return this.http.get<Scoring[]>(this.url2 + `scoring/manager/` + userId);
   }
 
   getScore(scoreId: string): Observable<Scoring> {
-    return this.http.get<Scoring>(this.url1 + `scoring/${scoreId}`);
+    return this.http.get<Scoring>(this.url2 + `scoring/${scoreId}`);
   }
 
   putScoringMoney(data: FormData, scoringId: string): Observable<Scoring[]> {
     return this.http.put<Scoring[]>(
-      this.url1 + `scoring/limit/` + scoringId,
+      this.url2 + `scoring/limit/` + scoringId,
       data
     );
   }
 
   // updateScoringLimit(limitMoney: any, scoringId:any): Observable<any> {
   //   return this.http.put<any>(
-  //    this. url1+ `scoring/limit/` + scoringId,
+  //    this. url2+ `scoring/limit/` + scoringId,
   //     limitMoney
   //   );
   // }
   updateScoring(scoringData: FormData, scoringid: string): Observable<Scoring> {
     return this.http.put<Scoring>(
-      this.url1 + `scoring/` + scoringid,
+      this.url2 + `scoring/` + scoringid,
       scoringData
     );
   }
 
   getScoringById(scoringId: string): Observable<Scoring> {
-    return this.http.get<Scoring>(this.url1 + `scoring/${scoringId}`);
+    return this.http.get<Scoring>(this.url2 + `scoring/${scoringId}`);
   }
 
   downloadFile(document: string, Id: any) {
-    return this.http.get(this.url1 + `scoring/download/${document}/${Id}`, {
+    return this.http.get(this.url2 + `scoring/download/${document}/${Id}`, {
       responseType: 'blob',
     });
   }
@@ -117,11 +118,11 @@ export class CategoriesService {
   editMenedjerStatus(data: any): Observable<any> {
     // let jsonData = JSON.stringify(data);
     console.log(data);
-    return this.http.put<any>(this.url1 + 'scoring/manager/' + data.id, data);
+    return this.http.put<any>(this.url2 + 'scoring/manager/' + data.id, data);
   }
 
   moveToArchive(scoringId: string): Observable<any> {
-    return this.http.put<any>(this.url1 + 'scoring/archive/' + scoringId,scoringId );
+    return this.http.put<any>(this.url2 + 'scoring/archive/' + scoringId,scoringId );
   }
 
   // sendCode(data: any): Observable<any> {
