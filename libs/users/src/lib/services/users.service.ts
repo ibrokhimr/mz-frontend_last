@@ -12,8 +12,8 @@ declare const require;
   providedIn: 'root'
 })
 export class UsersService {
-  apiURLUsers = 'https://mobilezone-shop.herokuapp.com/api/v1/' + 'users';
-
+  apiURLUsers1 = 'https://mobilezone-shop.herokuapp.com/api/v1/' + 'users';
+  apiURLUsers = 'https://mzone.uz/api/v1/' +'users'
 
   constructor(
     private http: HttpClient,

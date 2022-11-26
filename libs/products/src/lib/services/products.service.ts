@@ -11,7 +11,9 @@ import { Banner } from '../models/banner';
 })
 export class ProductsService {
   constructor(private http: HttpClient) {}
-  url = 'https://mobilezone-shop.herokuapp.com/api/v1/';
+  url1 = 'https://mobilezone-shop.herokuapp.com/api/v1/';
+  url = 'https://mzone.uz/api/v1/';
+
   getProducts(categoriesFilter?: string[]): Observable<Product[]> {
     let params = new HttpParams();
     if (categoriesFilter) {

@@ -11,6 +11,9 @@ import { CallCenter } from '../models/callCenter';
 export class CallCenterService {
   private messageSource = new BehaviorSubject<string>('default message');
   currentMessage = this.messageSource.asObservable();
+  url = 'https://mzone.uz/api/v1/callCenter/';
+
+  apiURLCallCenter = 'https://mzone.uz/api/v1/'+ 'callCenter';
 
   constructor(private http: HttpClient) {}
 
@@ -21,39 +24,39 @@ export class CallCenterService {
 
   getCallCenters(): Observable<CallCenter[]> {
     return this.http.get<CallCenter[]>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/callCenter/`
+      `${this.apiURLCallCenter}/`
     );
   }
 
   getCalCenter(callCenterId: string): Observable<CallCenter> {
     return this.http.get<CallCenter>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/callCenter/${callCenterId}`
+      `${this.apiURLCallCenter}/${callCenterId}`
     );
   }
 
   createCenterData(callCenter: CallCenter): Observable<CallCenter> {
     return this.http.post<CallCenter>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/callCenter/`,
+      `${this.apiURLCallCenter}/`,
       callCenter
     );
   }
 
   deleteCenterData(centerId: string): Observable<any> {
     return this.http.delete<any>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/callCenter/${centerId}`
+      `${this.apiURLCallCenter}/${centerId}`
     );
   }
 
   updateCenterData(callCenter: CallCenter): Observable<CallCenter> {
     return this.http.put<CallCenter>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/callCenter/` + callCenter.id,
+      `${this.apiURLCallCenter}/` + callCenter.id,
       callCenter
     );
   }
 
   updateZakupData(callCenter: CallCenter): Observable<CallCenter> {
     return this.http.put<CallCenter>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/callCenter/zakup/` + callCenter.id,
+      `${this.apiURLCallCenter}/zakup/` + callCenter.id,
       callCenter
     );
   }

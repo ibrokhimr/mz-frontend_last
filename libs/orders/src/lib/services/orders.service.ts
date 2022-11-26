@@ -9,19 +9,20 @@ import { Order } from '../models/order';
 export class OrdersService {
   constructor(private http: HttpClient) {}
   url = 'https://mobilezone-shop.herokuapp.com/api/v1/';
+  apiURLOrders = 'https://mzone.uz/api/v1/'+'orders';
   getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.url + `scoring/`);
   }
 
   getOrder(orderId: string): Observable<Order> {
     return this.http.get<Order>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/orders/${orderId}`
+      `${this.apiURLOrders}/${orderId}`
     );
   }
 
   createOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/orders`,
+      `${this.apiURLOrders}`,
       order
     );
   }
@@ -31,21 +32,21 @@ export class OrdersService {
     orderId: string
   ): Observable<Order> {
     return this.http.put<Order>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/orders/${orderId}`,
+      `${this.apiURLOrders}/${orderId}`,
       orderStaus
     );
   }
 
   deleteOrder(orderId: string): Observable<any> {
     return this.http.delete<any>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/orders/${orderId}`
+      `${this.apiURLOrders}/${orderId}`
     );
   }
 
   getOrdersCount(): Observable<number> {
     return this.http
       .get<number>(
-        `https://mobilezone-shop.herokuapp.com/api/v1/orders/get/count`
+        `${this.apiURLOrders}/get/count`
       )
       .pipe(map((objectValue: any) => objectValue.orderCount));
   }
@@ -53,14 +54,14 @@ export class OrdersService {
   getTotalSales(): Observable<number> {
     return this.http
       .get<number>(
-        `https://mobilezone-shop.herokuapp.com/api/v1/orders/get/totalsales`
+        `${this.apiURLOrders}/get/totalsales`
       )
       .pipe(map((objectValue: any) => objectValue.totalsales));
   }
 
   getProduct(productId: string): Observable<any> {
     return this.http.get<any>(
-      `https://mobilezone-shop.herokuapp.com/api/v1/products/${productId}`
+      `https://mzone.uz/api/v1/products/${productId}`
     );
   }
 }
